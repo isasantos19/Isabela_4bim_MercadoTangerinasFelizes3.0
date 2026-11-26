@@ -1,0 +1,175 @@
+
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #111;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+/* Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e32636;
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+main h2 {
+    color: #c9192e;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #c9192e;
+    padding-bottom: 10px;
+}
+
+main h3 {
+    color: #c9192e;
+    margin: 20px 0 15px;
+}
+
+/* Lista do carrinho */
+#lista_carrinho > div {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#lista_carrinho img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+#lista_carrinho h3 {
+    color: #222;
+    margin: 0;
+}
+
+#lista_carrinho p {
+    margin: 8px 0;
+}
+
+/* Quantidade */
+#lista_carrinho input {
+    width: 75px;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* Botões */
+button {
+    padding: 11px 18px;
+    background-color: #c9192e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a51224;
+}
+
+/* Resumo da compra */
+main section:last-child {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    border-left: 4px solid #c9192e;
+}
+
+main section:last-child p {
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+#total {
+    color: #c9192e;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Links */
+main a {
+    display: inline-block;
+    margin: 12px 12px 0 0;
+    color: #c9192e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    main {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    #lista_carrinho > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administradores - Mercado</title>
+    <link rel="stylesheet" href="administradores.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gerenciamento de administradores</h1>
+        <a href="../Menu/menu.HTML">Voltar ao menu</a>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Confirmar sua autorização</h2>
+
+            <p>Informe seus dados de administrador para realizar o cadastro.</p>
+
+            <div>
+                <label for="email_adm">Seu e-mail:</label>
+                <input type="email" id="email_adm">
+            </div>
+
+            <div>
+                <label for="senha_adm">Sua senha:</label>
+                <input type="password" id="senha_adm">
+            </div>
+        </section>
+
+        <section>
+            <h2>Cadastrar administrador</h2>
+
+            <form id="form_administrador">
+
+                <div>
+                    <label for="nome_pessoa">Nome:</label>
+                    <input type="text" id="nome_pessoa">
+                </div>
+
+                <div>
+                    <label for="email_pessoa">E-mail:</label>
+                    <input type="email" id="email_pessoa">
+                </div>
+
+                <div>
+                    <label for="senha_pessoa">Senha:</label>
+                    <input type="password" id="senha_pessoa">
+                </div>
+
+                <button type="submit">Cadastrar administrador</button>
+
+            </form>
+
+            <p id="mensagem"></p>
+        </section>
+
+        <section>
+            <h2>Administradores cadastrados</h2>
+
+            <button type="button" id="listar_administradores">
+                Consultar administradores
+            </button>
+
+            <div id="lista_administradores"></div>
+        </section>
+
+    </main>
+
+    <script src="administradores.js"></script>
+
+</body>
+</html>

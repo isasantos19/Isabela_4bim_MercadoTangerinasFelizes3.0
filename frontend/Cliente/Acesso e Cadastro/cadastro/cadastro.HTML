@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro - Mercado Tangerinas Felizes</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mercado Tangerinas Felizes</h1>
+        <nav>
+            <a href="../../../../index.html">Início</a>
+            <a href="../../../Menu/menu.HTML#lista_produtos">Produtos</a>
+            <a href="../login/login.HTML">Entrar</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Crie sua conta</h2>
+        <p>Preencha os dados abaixo para se cadastrar.</p>
+
+        <form id="form_cadastro">
+
+            <h3>Dados pessoais</h3>
+
+            <label for="nome_pessoa">Nome completo:</label>
+            <input type="text" id="nome_pessoa" name="nome_pessoa">
+
+            <label for="email_pessoa">E-mail:</label>
+            <input type="email" id="email_pessoa" name="email_pessoa">
+
+            <label for="senha_pessoa">Senha:</label>
+            <input type="password" id="senha_pessoa" name="senha_pessoa">
+
+            <label for="confirmar_senha">Confirmar senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha">
+
+            <label for="cpf_cliente">CPF:</label>
+            <input type="text" id="cpf_cliente" name="cpf_cliente" maxlength="11" inputmode="numeric">
+
+            <label for="telefone_cliente">Telefone:</label>
+            <input type="tel" id="telefone_cliente" name="telefone_cliente">
+
+            <h3>Endereço</h3>
+
+            <label for="cep_cliente">CEP:</label>
+            <input type="text" id="cep_cliente" name="cep_cliente" maxlength="8" inputmode="numeric">
+            <button type="button" id="buscar_cep">Buscar CEP</button>
+
+            <label for="rua_cliente">Rua:</label>
+            <input type="text" id="rua_cliente" name="rua_cliente">
+
+            <label for="numero_cliente">Número:</label>
+            <input type="text" id="numero_cliente" name="numero_cliente">
+
+            <label for="complemento_cliente">Complemento:</label>
+            <input type="text" id="complemento_cliente" name="complemento_cliente">
+
+            <label for="bairro_cliente">Bairro:</label>
+            <input type="text" id="bairro_cliente" name="bairro_cliente">
+
+            <label for="cidade_cliente">Cidade:</label>
+            <input type="text" id="cidade_cliente" name="cidade_cliente">
+
+            <label for="estado_cliente">Estado (UF):</label>
+            <input type="text" id="estado_cliente" name="estado_cliente" maxlength="2">
+
+            <p id="mensagem_cadastro"></p>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <p>Já possui uma conta? <a href="../login/login.HTML">Faça login</a>.</p>
+    </main>
+
+    <footer>
+        <p>Mercado Tangerinas Felizes</p>
+    </footer>
+
+    <script src="cadastro.js"></script>
+</body>
+
+</html>

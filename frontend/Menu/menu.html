@@ -1,170 +1,168 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mercado</title>
-
+    <title>Mercado Tangerinas Felizes</title>
     <link rel="stylesheet" href="menu.css">
+    <script src="menu.js" defer></script>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1>Mercado Tangerinas Felizes</h1>
+
+        <nav>
+            <a href="menu.HTML">Início</a>
+            <a href="../Cliente/Compras/carrinho/carrinho.HTML">Carrinho</a>
+            <a href="../Cliente/Acesso e Cadastro/login/login.HTML">Login</a>
+            <a href="../Cliente/Acesso e Cadastro/cadastro/cadastro.HTML">Cadastro</a>
+            <a href="../Cliente/Area_conta/minha_compras/minha_compra.HTML" id="link_minhas_compras">Minhas compras</a>
+            <a href="../Cliente/Area_conta/minha_conta/minha_conta.HTML">Minha conta</a>
+        </nav>
+
+        <!-- PESQUISA -->
+
+        <form class="pesquisa" id="form_pesquisa">
+
+            <input
+                type="search"
+                id="pesquisa"
+                name="pesquisa"
+                placeholder="Pesquisar produtos..."
+            >
+
+            <button type="submit">⌕</button>
+
+        </form>
+
+    </header>
+
     <main>
 
-        <section class="hero">
+        <!-- BANNER PRINCIPAL -->
 
-            <div class="logo">
-                <div>
-                    <h1>Mercado</h1>
-                    <div class="logo-linha"></div>
+        <section class="banner">
+
+            <input type="radio" name="carrossel" id="imagem1" checked>
+            <input type="radio" name="carrossel" id="imagem2">
+            <input type="radio" name="carrossel" id="imagem3">
+
+            <div class="carrossel">
+
+                <div class="slides">
+
+                    <div class="slide">
+                        <img src="../../imagens/banner1.png" alt="Qualidade e economia para você e sua família">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../imagens/banner2.png" alt="Qualidade e economia no mercado">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../imagens/banner3.png" alt="Variedade de frutas">
+                    </div>
+
                 </div>
+
             </div>
 
-            <div class="hero-conteudo">
+            <!-- CONTROLES DO CARROSSEL -->
 
-                <p class="subtitulo">
-                    BEM-VINDO AO NOSSO
-                </p>
+            <div class="controles">
 
-                <h2>
-                    Sistema de
-                    <span>Gerenciamento</span>
-                </h2>
+                <label for="imagem1"></label>
+                <label for="imagem2"></label>
+                <label for="imagem3"></label>
 
-                <div class="linha-vermelha"></div>
             </div>
 
         </section>
 
-        <section class="area-acesso">
+        <!-- CATEGORIAS -->
 
-            <nav>
+        <section class="categorias">
 
-                <a href="../Produtos/produtos.html" class="card-menu">
+            <div class="titulo-secao">
+                <h2>Explore nossas categorias</h2>
+                <p>Encontre tudo o que você precisa!</p>
+            </div>
 
-                    <div class="card-icone">
-                        📦
-                    </div>
+            <div class="lista-categorias" id="lista_categorias">
 
-                    <div class="card-texto">
-                        <h3>Produtos</h3>
+                <button type="button" class="categoria ativa" data-categoria="">
+                    <span class="icone_categoria">🛒</span>
+                    <span class="nome_categoria">Todos</span>
+                </button>
 
-                        <p>
-                            Gerencie os produtos
-                            do seu mercado.
-                        </p>
-                    </div>
+            </div>
 
-                    <div class="card-seta">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="../Categorias/categoria.html" class="card-menu">
-
-                    <div class="card-icone">
-                        🏷
-                    </div>
-
-                    <div class="card-texto">
-                        <h3>Categorias</h3>
-
-                        <p>
-                            Organize as categorias
-                            dos produtos.
-                        </p>
-                    </div>
-
-                    <div class="card-seta">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="../Fornecedores/fornecedores.html" class="card-menu">
-
-                    <div class="card-icone">
-                        🚚
-                    </div>
-
-                    <div class="card-texto">
-                        <h3>Fornecedores</h3>
-
-                        <p>
-                            Cadastre e gerencie
-                            seus fornecedores.
-                        </p>
-                    </div>
-
-                    <div class="card-seta">
-                        →
-                    </div>
-
-                </a>
-
-
-                <a href="../Clientes/clientes.html" class="card-menu">
-
-                    <div class="card-icone">
-                        👥
-                    </div>
-
-                    <div class="card-texto">
-                        <h3>Clientes</h3>
-
-                        <p>
-                            Mantenha o cadastro
-                            dos seus clientes.
-                        </p>
-                    </div>
-
-                    <div class="card-seta">
-                        →
-                    </div>
-
-                </a>
-
-                <a href="../Estoque/estoque.html" class="card-menu">
-
-                    <div class="card-icone">
-                        📦
-                    </div>
-
-                    <div class="card-texto">
-                        <h3>Estoque</h3>
-
-                        <p>
-                            Controle o estoque
-                            do seu mercado.
-                        </p>
-                    </div>
-
-                    <div class="card-seta">
-                        →
-                    </div>
-                </a>
-            </nav>
         </section>
+
+        <!-- PRODUTOS -->
+
+        <section class="secao_produtos">
+
+            <p id="mensagem_produtos">Carregando produtos...</p>
+
+            <div id="lista_produtos"></div>
+
+        </section>
+
+        <!-- DESTAQUES -->
+
+        <section class="destaques">
+
+            <div class="destaque destaque-ofertas">
+
+                <div>
+                    <h2>Ofertas especiais</h2>
+                    <p>Confira nossos produtos e aproveite nossas ofertas!</p>
+
+                    <a href="../Cliente/Area_publica/produtos/produtos.HTML">
+                        Ver produtos
+                    </a>
+                </div>
+
+                <span>🛒</span>
+
+            </div>
+
+            <div class="destaque destaque-qualidade">
+
+                <div>
+                    <h2>Qualidade para sua família</h2>
+                    <p>Produtos selecionados para o seu dia a dia.</p>
+
+                    <a href="../Cliente/Area_publica/produtos/produtos.HTML">
+                        Conhecer produtos
+                    </a>
+                </div>
+
+                <span>🍊</span>
+
+            </div>
+
+        </section>
+
     </main>
+
+    <!-- RODAPÉ -->
 
     <footer>
 
-        <p>
-            Desenvolvido por Isabela Maria Ferreira dos Santos
-            &nbsp; | &nbsp;
-            Técnico Integrado em Informática para Internet
-            &nbsp; | &nbsp;
-            M32 - 2026
-        </p>
+        <h2>Mercado Tangerinas Felizes</h2>
+        <p>Qualidade e economia para você e sua família!</p>
+        <p>Desenvolvido por Isabela - M32 - 2026</p>
 
     </footer>
 
 </body>
-
 </html>

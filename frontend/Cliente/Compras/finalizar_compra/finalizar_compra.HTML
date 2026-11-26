@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finalizar_compra.css">
+    <title>Finalizar compra - Mercado Tangerinas Felizes</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mercado Tangerinas Felizes</h1>
+
+        <nav>
+            <a href="../../../../index.HTML">Início</a>
+            <a href="../../../Menu/menu.HTML#lista_produtos">Produtos</a>
+            <a href="../carrinho/carrinho.HTML">Carrinho</a>
+            <a href="../../Area_conta/minha_conta/minha_conta.HTML">Minha conta</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Finalizar compra</h2>
+
+        <section>
+            <h3>Resumo do pedido</h3>
+
+            <div id="lista_produtos">
+                <p>Carregando produtos...</p>
+            </div>
+
+            <p><strong>Total: R$ <span id="valor_total">0,00</span></strong></p>
+        </section>
+
+        <section>
+            <h3>Forma de recebimento</h3>
+
+            <label>
+                <input type="radio" name="forma_recebimento" value="Entrega" onchange="alterarRecebimento()">
+                Receber em casa
+            </label>
+
+            <label>
+                <input type="radio" name="forma_recebimento" value="Retirada" onchange="alterarRecebimento()">
+                Retirar na loja
+            </label>
+        </section>
+
+        <section id="area_endereco" style="display: none;">
+
+            <h3>Endereço de entrega</h3>
+
+            <p>Escolha o endereço para receber seu pedido:</p>
+
+            <label>
+                <input type="radio" name="tipo_endereco" value="Cadastrado" onchange="alterarEndereco()">
+                Usar endereço cadastrado na minha conta
+            </label>
+
+            <label>
+                <input type="radio" name="tipo_endereco" value="Alternativo" onchange="alterarEndereco()">
+                Informar outro endereço
+            </label>
+
+            <div id="endereco_cadastrado" style="display: none;">
+
+                <h4>Endereço cadastrado</h4>
+
+                <p>CEP: <span id="cep"></span></p>
+                <p>Rua: <span id="rua"></span></p>
+                <p>Número: <span id="numero"></span></p>
+                <p>Complemento: <span id="complemento"></span></p>
+                <p>Bairro: <span id="bairro"></span></p>
+                <p>Cidade: <span id="cidade"></span></p>
+                <p>Estado: <span id="estado"></span></p>
+
+                <a href="../../Area_conta/minha_conta/minha_conta.HTML">
+                    Alterar endereço na minha conta
+                </a>
+
+            </div>
+
+            <div id="endereco_alternativo" style="display: none;">
+
+                <h4>Outro endereço</h4>
+
+                <label for="cep_alternativo">CEP:</label>
+                <input type="text" id="cep_alternativo">
+
+                <button type="button" id="buscar_cep_alternativo" onclick="buscarCepAlternativo()">
+                    Buscar CEP
+                </button>
+
+                <label for="rua_alternativa">Rua:</label>
+                <input type="text" id="rua_alternativa">
+
+                <label for="numero_alternativo">Número:</label>
+                <input type="text" id="numero_alternativo">
+
+                <label for="complemento_alternativo">Complemento:</label>
+                <input type="text" id="complemento_alternativo">
+
+                <label for="bairro_alternativo">Bairro:</label>
+                <input type="text" id="bairro_alternativo">
+
+                <label for="cidade_alternativa">Cidade:</label>
+                <input type="text" id="cidade_alternativa">
+
+                <label for="estado_alternativo">Estado:</label>
+                <input type="text" id="estado_alternativo">
+
+            </div>
+
+        </section>
+
+        <section>
+            <h3>Forma de pagamento</h3>
+
+            <label>
+                <input type="radio" name="forma_pagamento" value="Pix">
+                Pix
+            </label>
+
+            <label>
+                <input type="radio" name="forma_pagamento" value="Cartão">
+                Cartão
+            </label>
+
+            <label>
+                <input type="radio" name="forma_pagamento" value="Dinheiro">
+                Dinheiro
+            </label>
+        </section>
+
+        <button type="button" onclick="confirmarPedido()">
+            Confirmar pedido
+        </button>
+
+        <p id="mensagem"></p>
+
+        <a href="../carrinho/carrinho.HTML">Voltar ao carrinho</a>
+    </main>
+
+    <footer>
+        <p>Mercado Tangerinas Felizes</p>
+    </footer>
+
+    <script src="finalizar_compra.js"></script>
+
+</body>
+
+</html>

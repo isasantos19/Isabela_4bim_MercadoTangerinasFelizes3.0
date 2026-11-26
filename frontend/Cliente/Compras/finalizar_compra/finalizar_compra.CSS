@@ -1,0 +1,157 @@
+
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #111;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 15px;
+}
+
+/* Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e32636;
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+main h2 {
+    color: #c9192e;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #c9192e;
+    padding-bottom: 10px;
+}
+
+main h3 {
+    color: #c9192e;
+    margin: 25px 0 15px;
+}
+
+main p {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #c9192e;
+}
+
+/* Botões */
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #c9192e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a51224;
+}
+
+/* Links */
+main a {
+    color: #c9192e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+/* Resumo da compra */
+#resumo_compra {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    border-left: 4px solid #c9192e;
+    border-radius: 6px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    main {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+}

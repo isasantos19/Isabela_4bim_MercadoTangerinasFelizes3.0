@@ -1,0 +1,274 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #171717;
+}
+
+/* CABEÇALHO */
+
+header {
+    width: 100%;
+    min-height: 360px;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("../../../imagens/fundo-menu.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+header p {
+    font-size: 19px;
+    color: #eeeeee;
+    max-width: 700px;
+    line-height: 1.5;
+}
+
+/* ÁREA PRINCIPAL */
+
+main {
+    width: 100%;
+    padding: 45px 5% 55px;
+}
+
+nav {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* CARDS DO MENU */
+
+.card-menu {
+    min-height: 160px;
+
+    background-color: #151515;
+
+    border: 2px solid #d40000;
+    border-radius: 18px;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 28px;
+
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    transition: 0.2s;
+}
+
+/* DETALHE VERMELHO DO CARD */
+
+.card-menu::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -65px;
+    top: -65px;
+
+    background-color: #8f0000;
+
+    border-radius: 50%;
+}
+
+/* ÍCONE */
+
+.card-icone {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+
+    border-radius: 50%;
+
+    background-color: #d40000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 25px;
+
+    position: relative;
+    z-index: 2;
+
+    font-size: 32px;
+}
+
+/* TEXTO DO CARD */
+
+.card-texto {
+    position: relative;
+    z-index: 2;
+}
+
+.card-texto h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card-texto p {
+    color: #dddddd;
+
+    font-size: 16px;
+    line-height: 1.4;
+
+    max-width: 230px;
+}
+
+/* SETA */
+
+.card-seta {
+    position: absolute;
+
+    right: 30px;
+    bottom: 25px;
+
+    z-index: 2;
+
+    color: #e00000;
+    font-size: 30px;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.card-menu:hover {
+    transform: translateY(-5px);
+
+    background-color: #1d1d1d;
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-menu:hover .card-icone {
+    background-color: #e00000;
+}
+
+/* RODAPÉ */
+
+footer {
+    width: 100%;
+    min-height: 110px;
+
+    background-color: #151515;
+
+    border-top: 3px solid #e00000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #dddddd;
+
+    padding: 25px;
+    gap: 8px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1000px) {
+
+    nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    header {
+        min-height: 300px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 30px 4%;
+    }
+
+    nav {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card-menu {
+        padding: 22px;
+    }
+
+    .card-icone {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+
+        font-size: 27px;
+        margin-right: 18px;
+    }
+
+    .card-texto h3 {
+        font-size: 21px;
+    }
+
+    .card-texto p {
+        font-size: 14px;
+    }
+}

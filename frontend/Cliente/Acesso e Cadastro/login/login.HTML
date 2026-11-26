@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login - Mercado Tangerinas Felizes</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mercado Tangerinas Felizes</h1>
+
+        <nav>
+            <a href="../../../../index.html">Início</a>
+            <a href="../../../Menu/menu.HTML#lista_produtos">Produtos</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="area_login">
+
+            <h2>Entrar na minha conta</h2>
+
+            <form id="form_login">
+
+                <div>
+                    <label for="email_pessoa">E-mail:</label>
+                    <input type="email" id="email_pessoa">
+                </div>
+
+                <div>
+                    <label for="senha_pessoa">Senha:</label>
+                    <input type="password" id="senha_pessoa">
+
+                    <div class="mostrar_senha">
+                        <input type="checkbox" id="mostrar_senha">
+                        <label for="mostrar_senha">Mostrar senha</label>
+                    </div>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <p id="mensagem_login"></p>
+
+            </form>
+
+            <p id="link_cadastro">
+                Ainda não possui uma conta?
+                <a href="../cadastro/cadastro.HTML">Cadastre-se</a>
+            </p>
+
+            <div id="opcoes_acesso" style="display: none;">
+
+                <h2>Como deseja acessar?</h2>
+
+                <p>Escolha a área que deseja utilizar:</p>
+
+                <button type="button" id="acesso_cliente">
+                    Entrar como cliente
+                </button>
+
+                <button type="button" id="acesso_adm">
+                    Entrar como administrador
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Mercado Tangerinas Felizes</p>
+    </footer>
+
+    <script src="login.js"></script>
+
+</body>
+</html>
