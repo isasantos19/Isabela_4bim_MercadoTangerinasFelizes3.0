@@ -254,4 +254,360 @@ Os módulos são organizados de acordo com as responsabilidades de cada operaç�
 
 Permite gerenciar as contas que possuem permissão administrativa no sistema.
 
-Essa
+Essa funcionalidade possibilita controlar quais usuários estão autorizados a acessar a área administrativa.
+
+## 6.2 Gerenciamento de categorias
+
+Responsável pela organização dos produtos em categorias.
+
+Permite:
+
+- Cadastrar categorias.
+- Consultar categorias.
+- Listar categorias.
+- Atualizar informações.
+- Excluir categorias quando permitido.
+
+## 6.3 Gerenciamento de produtos
+
+Responsável pelo cadastro e pela manutenção dos produtos comercializados pelo mercado.
+
+Permite:
+
+- Cadastrar produtos.
+- Consultar produtos.
+- Listar produtos.
+- Atualizar informações.
+- Excluir produtos quando permitido.
+- Associar produtos às respectivas categorias.
+- Gerenciar imagens dos produtos.
+
+## 6.4 Gerenciamento de estoque
+
+Responsável pelo controle das informações relacionadas à disponibilidade dos produtos.
+
+Permite acompanhar e atualizar os registros de estoque, auxiliando no gerenciamento dos produtos comercializados.
+
+## 6.5 Gerenciamento de fornecedores
+
+Responsável pelo armazenamento e gerenciamento das informações dos fornecedores.
+
+Permite:
+
+- Cadastrar fornecedores.
+- Consultar fornecedores.
+- Listar fornecedores.
+- Atualizar informações.
+- Excluir fornecedores quando permitido.
+
+## 6.6 Gerenciamento de clientes
+
+Responsável pela consulta e pelo gerenciamento dos cadastros dos clientes.
+
+O sistema considera a desativação de clientes como alternativa à exclusão definitiva, preservando os registros e o histórico de compras relacionados ao cadastro.
+
+---
+
+# 7. Banco de dados
+
+O projeto utiliza o PostgreSQL para armazenar e organizar as informações necessárias ao funcionamento do sistema.
+
+A modelagem relacional contempla as entidades relacionadas às contas, aos clientes, aos produtos, às compras e ao gerenciamento administrativo.
+
+## 7.1 Principais entidades
+
+Entre as principais entidades utilizadas na estrutura do banco estão:
+
+| Entidade | Responsabilidade |
+|---|---|
+| PESSOA | Armazenar informações relacionadas às pessoas e às permissões das contas. |
+| CLIENTES | Armazenar informações específicas dos clientes. |
+| ENDERECOS | Registrar os endereços associados aos clientes. |
+| CATEGORIAS | Organizar os produtos em categorias. |
+| PRODUTOS | Armazenar os dados dos produtos comercializados. |
+| ESTOQUE | Registrar informações relacionadas à disponibilidade dos produtos. |
+| FORNECEDORES | Armazenar os dados dos fornecedores. |
+| CARRINHOS | Registrar os carrinhos de compras. |
+| ITENS_CARRINHO | Armazenar os produtos adicionados aos carrinhos. |
+| PEDIDOS | Registrar os pedidos realizados pelos clientes. |
+
+A estrutura também contempla tabelas associativas necessárias aos relacionamentos N:N definidos na modelagem.
+
+## 7.2 Relacionamentos
+
+O banco utiliza relacionamentos para conectar as informações das diferentes entidades.
+
+Entre os relacionamentos presentes na modelagem estão:
+
+- **PESSOA e CLIENTES (1:1):** relaciona uma pessoa ao seu cadastro de cliente.
+- **CLIENTES e ENDERECOS:** relaciona os clientes aos seus endereços.
+- **CATEGORIAS e PRODUTOS (1:N):** permite associar diversos produtos a uma categoria.
+- **CLIENTES e PEDIDOS (1:N):** permite que um cliente possua vários pedidos.
+- **CLIENTES e CARRINHOS (1:N):** permite relacionar carrinhos aos clientes, considerando também a possibilidade de carrinhos temporários.
+- **CARRINHOS e ITENS_CARRINHO (1:N):** permite armazenar vários itens em um mesmo carrinho.
+- **Relacionamentos N:N:** são representados por tabelas associativas, responsáveis por conectar as entidades envolvidas.
+
+## 7.3 Integridade dos dados
+
+A modelagem utiliza restrições para manter a consistência das informações armazenadas.
+
+Entre elas estão:
+
+| Restrição | Finalidade |
+|---|---|
+| PRIMARY KEY | Identificar exclusivamente cada registro. |
+| FOREIGN KEY | Estabelecer relacionamentos entre tabelas. |
+| UNIQUE | Impedir valores duplicados em campos específicos. |
+| NOT NULL | Impedir valores nulos em campos obrigatórios. |
+| DEFAULT | Definir valores automaticamente quando não forem informados. |
+
+Também são consideradas regras para controlar a exclusão e a atualização de registros relacionados.
+
+## 7.4 Desativação de clientes
+
+O sistema utiliza o conceito de desativação para preservar os registros dos clientes.
+
+Em vez de excluir definitivamente um cadastro, é possível alterar seu status, mantendo as informações e os relacionamentos necessários para a consulta do histórico de compras.
+
+Essa abordagem contribui para a preservação da integridade dos dados.
+
+## 7.5 Contas e permissões
+
+O gerenciamento das contas considera a separação entre as informações gerais da pessoa e os dados específicos do cadastro de cliente.
+
+A permissão administrativa é associada à conta, permitindo que um mesmo usuário autorizado utilize a Área do Cliente e a Área Administrativa.
+
+---
+
+# 8. Gerenciamento de imagens
+
+O sistema permite trabalhar com imagens dos produtos, contribuindo para a apresentação visual do catálogo.
+
+O envio dos arquivos é processado pelo Back-end utilizando o Multer.
+
+As imagens são armazenadas na pasta `imagens/` e disponibilizadas pelo servidor para utilização nas páginas do Front-end.
+
+Esse processo permite associar imagens aos produtos cadastrados e exibi-las durante a navegação pelo mercado.
+
+---
+
+# 9. Validações e regras de negócio
+
+O sistema utiliza validações para reduzir o envio de informações incorretas e garantir que as operações respeitem as regras estabelecidas.
+
+As validações são realizadas no JavaScript do Front-end e complementadas pelas restrições do banco de dados e pelo processamento do Back-end.
+
+Entre as regras consideradas estão:
+
+- Verificação das informações fornecidas nos formulários.
+- Validação dos dados necessários para cadastro e autenticação.
+- Controle de acesso às funcionalidades administrativas.
+- Exigência de autenticação para finalizar compras.
+- Associação dos pedidos aos clientes correspondentes.
+- Preservação do histórico de compras.
+- Controle dos relacionamentos entre os registros.
+- Verificação das operações permitidas antes de atualizar ou excluir informações.
+
+---
+
+# 10. Comunicação entre Front-end e Back-end
+
+A comunicação entre as interfaces e o servidor é realizada por requisições HTTP.
+
+O JavaScript utiliza `fetch()` para enviar solicitações e receber respostas da API.
+
+O processo ocorre da seguinte maneira:
+
+1. O usuário realiza uma ação na interface.
+2. O Front-end prepara e envia uma requisição HTTP.
+3. O servidor recebe a solicitação por meio de uma rota.
+4. A rota encaminha a operação ao Controller correspondente.
+5. O Controller executa a lógica necessária.
+6. Quando necessário, ocorre uma operação no PostgreSQL.
+7. O servidor retorna uma resposta.
+8. O Front-end apresenta o resultado ao usuário.
+
+Essa organização permite separar a interface visual das operações responsáveis pelo processamento dos dados.
+
+---
+
+# 11. Estrutura de diretórios
+
+A aplicação possui uma organização dividida entre os arquivos do Front-end, do Back-end e os recursos utilizados pelo sistema.
+
+A estrutura principal é composta por:
+
+```text
+Mercado-Tangerinas-Felizes/
+│
+├── backend/
+│   ├── controllers/
+│   │   ├── Adm Controllers/
+│   │   └── Clientes Controllers/
+│   │
+│   ├── routes/
+│   │   ├── Adm Routes/
+│   │   └── Clientes Routes/
+│   │
+│   ├── Gerar Senha/
+│   ├── database.js
+│   └── server.js
+│
+├── frontend/
+│   ├── Area_administrativa/
+│   ├── Cliente/
+│   └── Menu/
+│
+├── imagens/
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
+```
+
+**Observação:** a estrutura acima apresenta a organização principal do projeto. Algumas pastas possuem arquivos e subpastas adicionais destinados às funcionalidades específicas de cada área.
+
+## 11.1 Pasta backend
+
+Contém os arquivos responsáveis pelo funcionamento do servidor, incluindo:
+
+- Controllers;
+- Routes;
+- Conexão com o banco de dados;
+- Configuração e inicialização do servidor;
+- Recursos auxiliares.
+
+## 11.2 Pasta frontend
+
+Contém as páginas, os arquivos CSS e os scripts JavaScript utilizados nas interfaces.
+
+Está organizada de acordo com as áreas do sistema:
+
+- Área Administrativa;
+- Área do Cliente;
+- Menu.
+
+## 11.3 Pasta imagens
+
+Armazena as imagens utilizadas pela aplicação, incluindo os arquivos associados aos produtos e aos elementos visuais do site.
+
+---
+
+# 12. Configuração do ambiente
+
+Para executar o projeto, é necessário possuir o Node.js e o PostgreSQL instalados e configurados.
+
+A conexão com o banco de dados utiliza variáveis de ambiente, evitando deixar informações de acesso diretamente no código-fonte.
+
+As variáveis utilizadas são:
+
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=sua_senha
+DB_NAME=nome_do_banco
+```
+
+Os valores devem ser substituídos pelas informações correspondentes ao ambiente local.
+
+**Importante:** o arquivo `.env` contém informações privadas e não deve ser compartilhado ou enviado ao GitHub.
+
+---
+
+# 13. Instalação e execução
+
+## 13.1 Obter o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/isasantos19/Isabela_4bim_MercadoTangerinasFelizes3.0.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd Isabela_4bim_MercadoTangerinasFelizes3.0
+```
+
+## 13.2 Instalar as dependências
+
+No diretório que contém o `package.json`, execute:
+
+```bash
+npm install
+```
+
+Esse comando instala as dependências necessárias para o funcionamento da aplicação.
+
+## 13.3 Configurar o banco de dados
+
+1. Inicie o PostgreSQL.
+2. Crie o banco de dados que será utilizado.
+3. Configure as variáveis de ambiente no arquivo `.env`.
+4. Execute o script SQL de criação das tabelas.
+5. Realize a carga inicial dos dados, caso esteja disponibilizada no script do projeto.
+
+## 13.4 Iniciar o servidor
+
+Abra o terminal na pasta `backend` e execute:
+
+```bash
+node server.js
+```
+
+O servidor utiliza a porta `3001` como padrão, quando nenhuma outra porta é definida pela configuração da aplicação.
+
+## 13.5 Acessar o sistema
+
+Com o servidor iniciado, abra o arquivo `index.html` na estrutura do projeto por meio de um servidor local compatível com a aplicação.
+
+---
+
+# 14. Segurança e versionamento
+
+Durante o desenvolvimento, foram consideradas práticas para proteger informações privadas e organizar o código-fonte.
+
+Entre elas estão:
+
+- Utilização de variáveis de ambiente para armazenar informações de conexão.
+- Exclusão de arquivos `.env` do repositório.
+- Exclusão das pastas `node_modules` do versionamento.
+- Organização do código em arquivos e diretórios específicos.
+- Utilização do Git para acompanhar alterações.
+- Utilização do GitHub para armazenar e compartilhar o projeto.
+
+O arquivo `.gitignore` define os arquivos e diretórios que não devem ser enviados ao repositório.
+
+---
+
+# 15. Considerações finais
+
+O desenvolvimento do Mercado Tangerinas Felizes possibilitou aplicar, de maneira integrada, os conhecimentos relacionados à criação de aplicações web e ao gerenciamento de dados.
+
+A construção das áreas administrativa e do cliente permitiu trabalhar com diferentes funcionalidades, como autenticação, controle de permissões, operações CRUD, gerenciamento de produtos, carrinho de compras e registro de pedidos.
+
+A utilização da arquitetura Cliente/Servidor e do padrão MVC contribuiu para organizar o desenvolvimento e separar as responsabilidades de cada parte da aplicação.
+
+Além disso, a integração com o PostgreSQL permitiu trabalhar com modelagem relacional, chaves primárias, chaves estrangeiras, restrições e relacionamentos entre entidades.
+
+Dessa forma, o projeto representa a aplicação prática dos conteúdos estudados na disciplina de Desenvolvimento Web 1 durante o 4º bimestre de 2026.
+
+---
+
+# 16. Autoria
+
+**Isabela Maria Ferreira dos Santos**
+
+Curso Técnico Integrado em Informática para Internet  
+Turma M32  
+Ano: 2026
+
+**Disciplina:** Desenvolvimento Web 1 (DW1)
+
+**Projeto:** Mercado Tangerinas Felizes
+
+**Repositório:** [GitHub - Mercado Tangerinas Felizes](https://github.com/isasantos19/Isabela_4bim_MercadoTangerinasFelizes3.0)
